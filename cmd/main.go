@@ -8,8 +8,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	_ "go-gr-maps/docs"
-	"go-gr-maps/pkg"
 	"go-gr-maps/pkg/api"
+	"go-gr-maps/pkg/fixtures"
 	"net/http"
 	"os"
 	"os/signal"
@@ -73,7 +73,7 @@ func main() {
 		return
 	}
 
-	seeder := pkg.NewSeeder(db)
+	seeder := fixtures.NewSeeder(db)
 	seeder.SeedAll()
 
 	var router = api.NewRouter(db)

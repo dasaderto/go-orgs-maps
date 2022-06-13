@@ -32,9 +32,9 @@ CREATE TABLE organization_sectors_rel
 (
     organization_id BIGINT NOT NULL
         CONSTRAINT organizationdb_id_fk_organizat REFERENCES organizations deferrable initially deferred,
-    sectid          BIGINT NOT NULL
+    sector_id          BIGINT NOT NULL
         CONSTRAINT organizationsectordb_fk_organizat REFERENCES organization_sectors deferrable initially deferred,
-    CONSTRAINT organi_organizationdb_id_organi_uniq UNIQUE (organization_id, sectid)
+    CONSTRAINT organi_organizationdb_id_organi_uniq UNIQUE (organization_id, sector_id)
 );
 
 
@@ -79,10 +79,10 @@ CREATE TABLE organization_forms_answers
     organization_form_id     BIGINT NOT NULL
         CONSTRAINT organizationforms_i_fk_organizat
             REFERENCES organization_forms deferrable initially deferred,
-    organization_template_id BIGINT NOT NULL
+    answer_id BIGINT NOT NULL
         CONSTRAINT organizationtemplate_fk_organizat
             REFERENCES organization_question_templates deferrable initially deferred,
-    CONSTRAINT organizationforms_id_uniq UNIQUE (organization_form_id, organization_template_id)
+    CONSTRAINT organizationforms_id_uniq UNIQUE (organization_form_id, answer_id)
 );
 
 

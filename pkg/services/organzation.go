@@ -7,6 +7,7 @@ import (
 type IOrganizationRepository interface {
 	FindAll() []models.OrganizationDB
 	BulkCreate(organizations []*models.OrganizationDB) error
+	SetSectors(organization *models.OrganizationDB, organizationSector []*models.OrganizationSectorDB) error
 }
 
 type OrganizationService struct {

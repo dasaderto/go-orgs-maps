@@ -5,6 +5,8 @@ type OrganizationSectorDB struct {
 	Name string `db:"name" json:"name"`
 }
 
+func (m *OrganizationSectorDB) FillDefault() {}
+
 func (m OrganizationSectorDB) TableName() string {
 	return "organization_sectors"
 }

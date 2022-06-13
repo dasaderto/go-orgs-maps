@@ -16,13 +16,23 @@ func NewContainer(db *sqlx.DB) *Container {
 }
 
 func (c *Container) InitOrganizationRepository() services.IOrganizationRepository {
-	var repository services.IOrganizationRepository = repositories.NewOrganizationRepository(c.db)
-	return repository
+	return repositories.NewOrganizationRepository(c.db)
+}
+
+func (c *Container) InitOrganizationSectorsRepository() services.IOrganizationSectorRepository {
+	return repositories.NewOrganizationSectorsRepository(c.db)
+}
+
+func (c *Container) InitQuestionTemplateRepository() services.IQuestionTemplateRepository {
+	return repositories.NewQuestionTemplateRepository(c.db)
+}
+
+func (c *Container) InitOrganizationFormRepository() services.IOrganizationFormRepository {
+	return repositories.NewOrganizationFormRepository(c.db)
 }
 
 func (c *Container) InitOrganizationService() handlers.IOrganizationService {
-	var service handlers.IOrganizationService = services.NewOrganizationService(
+	return services.NewOrganizationService(
 		c.InitOrganizationRepository(),
 	)
-	return service
 }

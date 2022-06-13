@@ -32,8 +32,8 @@ type OrganizationDB struct {
 }
 
 type OrganizationSectorsRelDB struct {
-	OrganizationID int `db:"organization_id"`
-	SectorID       int `db:"sector_id"`
+	OrganizationID int64 `db:"organization_id"`
+	SectorID       int64 `db:"sector_id"`
 }
 
 func (m OrganizationDB) TableName() string {

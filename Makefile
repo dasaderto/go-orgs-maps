@@ -11,3 +11,6 @@ migrate_down:
 
 swagger-init:
 	swag init --parseDependency -g docs/docs.go
+
+run:
+	go run cmd/main.go
